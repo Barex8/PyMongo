@@ -81,13 +81,13 @@ deleteOneEjercicio("Flexion")
  """
 
 #Consultas avanzadas
-MostrarConsultas(mycol.find({ "dificultad": { "$gt": 2 } })) #Muestra las dificultades mayores a 2
+""" MostrarConsultas(mycol.find({ "dificultad": { "$gt": 2 } })) #Muestra las dificultades mayores a 2
 MostrarConsultas(mycol.find({ "dificultad": { "$lt": 2 } })) #Muestra las dificultades menores a 2
 MostrarConsultas(mycol.find({ "dificultad": 2})) #Muestra las dificultades iguales a 2
-MostrarConsultas(mycol.find({ "dificultad" : 1 "&&" : 4})) #Muestra las dificultades mayores que 1 y menores que 4
-
-
-
+MostrarConsultas(mycol.find({ "$and": [ { "dificultad": { "$gt":4 } }, { "dificultad": { "$lt": 4 } } ] } )) #Muestra las dificultades mayores que 1 y menores que 4
+MostrarConsultas(mycol.find({"$or": [{"dificultad": 3}, {"dificultad":1} ]})) #Muestra si las dificultades son 3 o 1
+MostrarConsultas(mycol.find({"nombre" : {"$regex" : "Remo"}})) #Muestra los que contiene Remo
+MostrarConsultas(mycol.find({ "dificultad": { "$ne": "null" } })) # Muestra los campos que tienen una dificultad null, no hay ninguna """
 
 
 myclient.close()
